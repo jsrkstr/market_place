@@ -1,0 +1,14 @@
+# Local Postgres + pgvector for development and tests. Production uses Aiven for PostgreSQL.
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: market
+      POSTGRES_PASSWORD: market
+      POSTGRES_DB: market
+    ports:
+      - "5544:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
